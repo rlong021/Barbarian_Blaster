@@ -5,7 +5,6 @@ extends Node3D
 var current_health: int:
 	set(health_in):
 		current_health = health_in
-		print("Health was changed")
 		label_3d.text = str(current_health) + "/" + str(max_health)
 		var red: Color = Color.RED
 		var white: Color = Color.WHITE
