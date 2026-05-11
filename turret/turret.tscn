@@ -1,4 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6xna8ir76vle"]
+[gd_scene load_steps=7 format=3 uid="uid://c6xna8ir76vle"]
+
+[ext_resource type="Script" uid="uid://dosl71y2i0rim" path="res://turret/turret.gd" id="1_vfthy"]
+[ext_resource type="PackedScene" uid="uid://b4w1corqpp0xu" path="res://turret/projectile.tscn" id="2_2876l"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pweg5"]
 height = 1.0
@@ -15,6 +18,8 @@ size = Vector3(0.8, 0.4, 0.4)
 size = Vector3(0.4, 0.2, 0.5)
 
 [node name="Turret" type="Node3D"]
+script = ExtResource("1_vfthy")
+projectile = ExtResource("2_2876l")
 
 [node name="TurretBase" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -31,3 +36,8 @@ mesh = SubResource("BoxMesh_pweg5")
 [node name="Barrel" type="MeshInstance3D" parent="TurretBase/TurretTop/Visor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.175524)
 mesh = SubResource("BoxMesh_vfthy")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
