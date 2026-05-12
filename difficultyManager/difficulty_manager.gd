@@ -2,6 +2,7 @@ extends Node
 
 @export var game_length := 30.0
 @export var spawn_time_curve: Curve
+@export var enemy_health_curve: Curve
 
 @onready var timer: Timer = $Timer
 

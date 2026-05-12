@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b4ghhanl7jasv"]
+[gd_scene load_steps=18 format=3 uid="uid://b4ghhanl7jasv"]
 
 [ext_resource type="MeshLibrary" uid="uid://dfb65nr40chr0" path="res://meshLibraries/spaceLibrary.tres" id="1_6tisa"]
 [ext_resource type="PackedScene" uid="uid://cqx8cr8rv35v2" path="res://rayPickerCamera/ray_picker_camera.tscn" id="1_oox4p"]
@@ -42,6 +42,8 @@ outline_color = Color(0, 0, 0, 1)
 _limits = [0.25, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 2), 0.0, -1.75, 0, 1, Vector2(1, 0.25), -1.75, 0.0, 1, 0]
 point_count = 2
+
+[sub_resource type="Curve" id="Curve_fal5o"]
 
 [node name="BaseLevel" type="Node3D"]
 
@@ -154,5 +156,6 @@ label_settings = SubResource("LabelSettings_rlct4")
 
 [node name="DifficultyManager" parent="." instance=ExtResource("9_u6ue0")]
 spawn_time_curve = SubResource("Curve_u6ue0")
+enemy_health_curve = SubResource("Curve_fal5o")
 
 [connection signal="timeout" from="EnemyPath/Timer" to="EnemyPath" method="spawn_enemy"]
