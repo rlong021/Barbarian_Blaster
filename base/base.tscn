@@ -1,23 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://vin3ej8shvub"]
+[gd_scene load_steps=4 format=3 uid="uid://vin3ej8shvub"]
 
 [ext_resource type="Script" uid="uid://g623c31crxe8" path="res://base/base.gd" id="1_mftly"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbkse"]
-albedo_color = Color(0.886275, 0, 0.0196078, 1)
+[ext_resource type="FontFile" uid="uid://dje5ehkw34311" path="res://assets/Asap/static/Asap-Bold.ttf" id="2_1ggjv"]
+[ext_resource type="PackedScene" uid="uid://b8mm1htnme3l0" path="res://assets/30_BB_G3D - Castle Meshes/Base.glb" id="2_m7viw"]
 
 [node name="Base" type="Node3D" groups=["base"]]
 script = ExtResource("1_mftly")
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-radius = 2.0
-height = 4.0
-sides = 32
-material = SubResource("StandardMaterial3D_dbkse")
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.063, 5.07444, -0.678)
 billboard = 1
 text = "Starting Health"
+font = ExtResource("2_1ggjv")
 font_size = 500
 outline_size = 100
+
+[node name="Base" parent="." instance=ExtResource("2_m7viw")]

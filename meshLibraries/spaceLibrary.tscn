@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://digv8h7bhthmp"]
+[gd_scene load_steps=9 format=3 uid="uid://digv8h7bhthmp"]
+
+[ext_resource type="PackedScene" uid="uid://bn1l2jtvmwm4v" path="res://assets/30_BB_G3D - Castle Meshes/Tree.glb" id="1_l0rv8"]
+[ext_resource type="PackedScene" uid="uid://di55ym7b76yye" path="res://assets/30_BB_G3D - Castle Meshes/Rocks.glb" id="2_han8f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcj72"]
-albedo_color = Color(0.817521, 0.817521, 0.817521, 1)
+blend_mode = 1
+albedo_color = Color(0.270222, 0.270222, 0.270222, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gcj72"]
 material = SubResource("StandardMaterial3D_gcj72")
@@ -11,7 +15,8 @@ size = Vector3(4, 0.1, 4)
 data = PackedVector3Array(-2, 0.05, 2, 2, 0.05, 2, -2, -0.05, 2, 2, 0.05, 2, 2, -0.05, 2, -2, -0.05, 2, 2, 0.05, -2, -2, 0.05, -2, 2, -0.05, -2, -2, 0.05, -2, -2, -0.05, -2, 2, -0.05, -2, 2, 0.05, 2, 2, 0.05, -2, 2, -0.05, 2, 2, 0.05, -2, 2, -0.05, -2, 2, -0.05, 2, -2, 0.05, -2, -2, 0.05, 2, -2, -0.05, -2, -2, 0.05, 2, -2, -0.05, 2, -2, -0.05, -2, 2, 0.05, 2, -2, 0.05, 2, 2, 0.05, -2, -2, 0.05, 2, -2, 0.05, -2, 2, 0.05, -2, -2, -0.05, 2, 2, -0.05, 2, -2, -0.05, -2, 2, -0.05, 2, 2, -0.05, -2, -2, -0.05, -2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gl8b"]
-albedo_color = Color(1, 0.19, 0.19, 1)
+transparency = 1
+albedo_color = Color(1, 0.19, 0.19, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_l0rv8"]
 material = SubResource("StandardMaterial3D_7gl8b")
@@ -23,7 +28,6 @@ data = PackedVector3Array(-2, 0.05, 2, 2, 0.05, 2, -2, -0.05, 2, 2, 0.05, 2, 2, 
 [node name="SpaceLibrary" type="Node3D"]
 
 [node name="FreeSpace" type="MeshInstance3D" parent="."]
-visible = false
 mesh = SubResource("BoxMesh_gcj72")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="FreeSpace"]
@@ -38,3 +42,7 @@ mesh = SubResource("BoxMesh_l0rv8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TurretBase/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7gl8b")
+
+[node name="Tree" parent="." instance=ExtResource("1_l0rv8")]
+
+[node name="Rocks" parent="Tree" instance=ExtResource("2_han8f")]

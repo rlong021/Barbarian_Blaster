@@ -18,6 +18,5 @@ func _ready() -> void:
 	current_health = max_health
 
 func take_damage() -> void:
-	print("Damage dealt to base!")
 	current_health -= 1
 	
